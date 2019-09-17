@@ -1,0 +1,113 @@
+{
+    "tree": {
+        "associations": [
+            "fir",
+            "pear",
+            "apple",
+            "evergreen",
+            "brush",
+            "planted",
+            "forest",
+            "grow",
+            "plant"
+        ]
+    },
+    "house": {
+        "associations": [
+            "brick",
+            "building",
+            "home",
+            "manor",
+            "attic",
+            "living",
+            "roof"
+        ]
+    },
+    "car": {
+        "associations": [
+            "racing",
+            "driving",
+            "engine",
+            "speed",
+            "highway",
+            "mechanic"
+        ]
+    },
+    "flower": {
+        "associations": [
+            "color",
+            "spring",
+            "plant",
+            "garden",
+            "petal",
+            "scent"
+        ]
+    },
+    "cellular telephone": {
+        "associations": [
+            "Call",
+            "Mobile",
+            "Android",
+            "Contact",
+            "Screen",
+            "Number"
+        ]
+    },
+    "ant": {
+        "associations": [
+            "wasp",
+            "grasshopper",
+            "nest",
+            "crawling",
+            "parasitic",
+            "sting"
+        ]
+    },
+    "ball": {
+        "associations": [
+            "bowler",
+            "throwing",
+            "tennis",
+            "beach",
+            "outside"
+        ]
+    },
+    "bus": {
+        "associations": [
+            "volvo",
+            "tram",
+            "truck",
+            "stop",
+            "pedestrian"
+        ]
+    },
+    "cow": {
+        "associations": [
+            "dairy",
+            "cat",
+            "grass",
+            "butter",
+            "corn",
+            "farm"
+        ]
+    },
+    "hat": {
+        "associations": [
+            "straw",
+            "rain",
+            "umbrella",
+            "blouse",
+            "moustache"
+        ]
+    },
+    "desktop computer":{
+        "associations" : [
+            "Keyboard",
+            "Eelectronics",
+            "Digital",
+            "Internet",
+            "Screen",
+            "Mechanical"
+        ]
+    }
+}

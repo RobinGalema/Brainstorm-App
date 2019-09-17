@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Yeet</title>
+    <link rel="stylesheet" href="master.css">
+</head>
+
+<body>
+
+    <div id="foundWords">
+        <!--
+            <h1 id="placeholderHead">Loading...</h1>
+            <p id="placeholderText">The script is working it's magic! This shouldn't take long!</p>
+        -->
+        <p id = "startText">Input a link to an image and click the button to start.</p>
+        <input type="text" id="inputBox"><br>
+        <button id="startButton" onclick="start()">Start!</button>
+        </div>
+    <div id="foundImage"></div>
+
+    </div>
+    <!--ML5 Image classification scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+
+    <!--Socket.io script-->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="app.js"></script>
+        
+</body>
+
+</html>
