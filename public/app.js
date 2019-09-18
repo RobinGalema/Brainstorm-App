@@ -15,20 +15,19 @@ function gotResult(error, results) {
 // Callback for when the model is loaded
 function modelready() {
     console.log("model is ready");
+    console.log(input);
     mobilenet.predict(input, gotResult);
 }
+    
 
 // Setup function for ml5 and defining the image to use
 document.getElementById('startButton').addEventListener("click",function(){
 
 });
 function setup() {
-    input = createImg("https://3.imimg.com/data3/NA/AJ/MY-4145714/desktop-computer-500x500.jpg");
-    input.hide();
 }
 
 function start(){
-    mobilenet = ml5.imageClassifier('MobileNet', modelready);
     const button = document.getElementById('startButton');
     const startText = document.getElementById('startText');
     const foundWords = document.getElementById('foundWords');
@@ -47,6 +46,10 @@ function start(){
     startText.remove();
     foundWords.appendChild(h1);
     foundWords.appendChild(p);
+
+    input = createImg(inputLink);
+    input.hide();
+    mobilenet = ml5.imageClassifier('MobileNet', modelready);
 }
 
 
