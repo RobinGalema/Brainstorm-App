@@ -29,15 +29,19 @@ io.on('connection', function(socket){
         console.log(msg);
     })
 
+    // Detect when the client sends the link for the google api
     socket.on('googleJson', function(link){
         console.log(link);
+        // Get the json file from the google link
         fetch(link)
         .then(res => res.json())
         .then(function(json){
-            //console.log(json);
-            //let googleResults = JSON.parse(json);
+            // Debug
             console.log(json.items[0].image.thumbnailLink);
+
+            // Get the first image from the google json file
             let foundImage = json.items[0].image.thumbnailLink;
+            // Send the image link to the client
             socket.emit('foundImage', foundImage)
         });
     })
@@ -63,6 +67,7 @@ io.on('connection', function(socket){
             if (err) throw err;
             let words = JSON.parse(data);
         
+            // Debug
             //console.log(words);
 
             // Get the path to the associations of the found word in the words object
