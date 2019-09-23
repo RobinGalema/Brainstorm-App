@@ -29,18 +29,21 @@ io.on('connection', function(socket){
         console.log(msg);
     })
 
+    // Detect when the client sends the link for the google api
     socket.on('googleJson', function(link){
-        //console.log(link);
+        console.log(link);
+        // Get the json file from the google link
         fetch(link)
         .then(res => res.json())
-        .then(function(err, json){
-            if (err) throw err
-            //console.log(json);
-            //let googleResults = JSON.parse(json);
+        .then(function(json){
+            // Debug
             console.log(json.items[0].image.thumbnailLink);
+
+            // Get the first image from the google json file
             let foundImage = json.items[0].image.thumbnailLink;
-            socket.emit('foundImage', foundImage);
-        })
+            // Send the image link to the client
+            socket.emit('foundImage', foundImage)
+        });
     })
 
     // Detect when the client sends data to the server
@@ -50,25 +53,28 @@ io.on('connection', function(socket){
 
         // Put the first found association found in a string
         let result = data[0].label.toString();
-
+        console.log(result);
+        console.log(result.indexOf(','));
         // Split the string to only get the first association
-        if (result.indexOf(',') != null){
+        if (result.indexOf(',') != -1){
         result = result.substring(0,result.indexOf(','));
         };
         // Debug
-        console.log(result);
+        console.log(`Result = ${result}`);
 
         // Search for word associations in the json file
         fs.readFile('words.json', (err, data) => {
             if (err) throw err;
             let words = JSON.parse(data);
         
+            // Debug
             //console.log(words);
 
             // Get the path to the associations of the found word in the words object
             let path = `${result}.associations`;
             // Convert the path to dot notation with dot-object.js
             var val = dot.pick(path,words);
+            console.log(val);
 
             // Log the associations found
             for (i=0; i<val.length; i++)
