@@ -33,6 +33,7 @@ io.on('connection', function(socket){
     socket.on('googleJson', function(link){
         console.log(link);
         // Get the json file from the google link
+        /*
         fetch(link)
         .then(res => res.json())
         .then(function(json){
@@ -42,8 +43,9 @@ io.on('connection', function(socket){
             // Get the first image from the google json file
             let foundImage = json.items[0].image.thumbnailLink;
             // Send the image link to the client
-            socket.emit('foundImage', foundImage)
+            socket.emit('foundImage', foundImage);     
         });
+        */
     })
 
     // Detect when the client sends data to the server

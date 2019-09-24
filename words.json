@@ -109,5 +109,15 @@
             "Screen",
             "Mechanical"
         ]
+    },
+    "palm": {
+        "associations" : [
+            "oasis",
+            "hand",
+            "leaf",
+            "beach",
+            "tree",
+            "coconut"
+        ]
     }
 }

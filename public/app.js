@@ -36,6 +36,21 @@ function setup() {
 
 
 
+// --- Camera ---
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+
+
+
 // --- Start function after button clicked ---
 
 function start(){
@@ -43,6 +58,7 @@ function start(){
     const button = document.getElementById('startButton');
     const startText = document.getElementById('startText');
     const foundWords = document.getElementById('foundWords');
+    const webcam = document.getElementById('videoElement');
 
     // Create new elements for the loading page
     let h1 = document.createElement('h1');
@@ -60,6 +76,7 @@ function start(){
     inputBox.remove();
     button.remove();
     startText.remove();
+    webcam.hidden = true;
 
     // Append the created loading screen elements to show while the ml5 library is loading
     foundWords.appendChild(h1);
@@ -93,6 +110,7 @@ socket.on('foundImage', function(foundImage){
     // Create a new image element for the image container
     const imageContainer = document.getElementById('foundImage');
     let imageContent = document.createElement('img');
+    imageContent.className = "image";
 
     // Set the source of the image to the link given by the google api and append it to the image container
     imageContent.src = foundImage;
@@ -102,14 +120,20 @@ socket.on('foundImage', function(foundImage){
 socket.on('imagePrediction', function(imagePrediction){
     // Create a new text element
     const foundWords = document.getElementById('foundWords');
+    const canvas = document.getElementById('canvas');
     let content = document.createElement('p');
     content.className = 'predictionText';
 
     // Put the recieved image pediction on the screen
-    content.innerText = `Image prediction: ${imagePrediction}`;
+    content.innerText = `You have drawn: ${imagePrediction}`;
     let enter = document.createElement('br');
     foundWords.appendChild(content);
     foundWords.appendChild(enter);
+    canvas.hidden = false;
+    var context = canvas.getContext('2d');
+    var videoElement = document.getElementById('videoElement');
+    context.drawImage(videoElement, 0, 0, 640, 480);
+    console.log('snap made');
 })
 
 // Detect when the server sends back the array of associations and append those found words to an empty div
@@ -128,7 +152,7 @@ socket.on('serverWords', function (words) {
     // Create a text element and append it to the container
     let paragraph = document.createElement("p");
     paragraph.className = 'associationsHead';
-    paragraph.innerText = 'I found these associations:'
+    paragraph.innerText = 'Based on your drawing, we found these associations with your word:'
     foundWords.appendChild(paragraph);
 
     // Create a text element and append it to the container fot each found association in the array recieved from the server

@@ -8,12 +8,21 @@
 
 <body>
 
+    <h1>Brainstorm App</h1>
+    <div id="foundImage"></div>
+    <div class="container" id="yeet">
+            <video autoplay="true" class="blockCSS" id="videoElement"></video>
+            <canvas id="canvas" class="blockCSS" width="640" height="480" hidden="true"></canvas>
+        </div>
+
     <div id="foundWords">
-        <p id = "startText">Input a link to an image and click the button to start.</p>
+        <p id="startText">Enable the camera and start drawing to begin <br><br>
+            <b>OR</b><br><br>
+            Use a link to an image</p>
         <input type="text" id="inputBox"><br>
         <button id="startButton" onclick="start()">Start!</button>
-        </div>
-    <div id="foundImage"></div>
+    </div>
+
 
     </div>
     <!--ML5 Image classification scripts-->
@@ -28,7 +37,7 @@
 
     <!-- Main Javascript file -->
     <script src="app.js"></script>
-        
+
 </body>
 
 </html>
