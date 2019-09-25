@@ -33,7 +33,7 @@ io.on('connection', function(socket){
     socket.on('googleJson', function(link){
         console.log(link);
         // Get the json file from the google link
-        /*
+        
         fetch(link)
         .then(res => res.json())
         .then(function(json){
@@ -45,7 +45,7 @@ io.on('connection', function(socket){
             // Send the image link to the client
             socket.emit('foundImage', foundImage);     
         });
-        */
+        
     })
 
     // Detect when the client sends data to the server

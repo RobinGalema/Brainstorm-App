@@ -119,5 +119,35 @@
             "tree",
             "coconut"
         ]
+    },
+    "monitor":{
+        "associations": [
+            "Sensor",
+            "detect",
+            "laptop",
+            "output",
+            "signal",
+            "computer"
+        ]
+    },
+    "folding chair":{
+        "associations": [
+            "table",
+            "sitting",
+            "furniture",
+            "comfort",
+            "back",
+            "room"
+        ]
+    },
+    "dining table":{
+        "associations": [
+            "dinner",
+            "chair",
+            "cupboard",
+            "diner",
+            "couch",
+            "wooden"
+        ]
     }
 }
